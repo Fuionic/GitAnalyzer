@@ -36,7 +36,7 @@ The user interface uses a custom pitch-black modern workspace layout built with 
 
 <img src="assets/Dashboard2.png" alt="Dashboard 2" width="100%" />
 
-<img src="assets/dashboard3.png" alt="Dashboard 3" width="100%" />
+<img src="assets/Dashboard3.png" alt="Dashboard 3" width="100%" />
 
 ---
 
