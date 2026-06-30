@@ -32,7 +32,7 @@ The user interface uses a custom pitch-black modern workspace layout built with 
 
 **Dashboard**
 
-<img src="assets/Dashoard.png" alt="Dashboard" width="100%" />
+<img src="assets/Dashboard.png" alt="Dashboard" width="100%" />
 
 <img src="assets/Dashboard2.png" alt="Dashboard 2" width="100%" />
 
