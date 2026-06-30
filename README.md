@@ -1,26 +1,25 @@
-# 🌌 GitAnalyzer Banner
 
 ### A high-performance Spring Boot and React developer intelligence engine that compiles real-time repository metadata and AI-synthesized coding style dossiers.
 
 ---
 
-## 🔒 Repository Notice
+## Repository Notice
 The source code for this project is hosted in a private repository to protect API keys, custom authentication handling. It prevents exposure of application endpoints while keeping deployment pipelines secure.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 You can access the live web application interface directly at [gitanalyzer-omega.vercel.app](https://gitanalyzer-omega.vercel.app). The user interface is optimized for modern web browsers, featuring responsive glassmorphic layouts and interactive dashboard panels.
 
 ---
 
-## 📹 Demo Video
+## Demo Video
 For a complete visual walkthrough of the user flows, authentication steps, real-time developer dossier generation, and overall system functionality, watch the walkthrough video link:
 [Click here to view the Demonstration Video](https://gitanalyzer-omega.vercel.app/demo-video-placeholder)
 
 ---
 
-## 🖼️ Preview's
+## Preview's
 The user interface uses a custom pitch-black modern workspace layout built with Tailwind CSS and Framer Motion. Below is a high-level preview of the core analytical workspace:
 
 **Landing**
@@ -31,33 +30,27 @@ The user interface uses a custom pitch-black modern workspace layout built with 
 
 <img src="assets/Login.png" alt="Login" width="100%" />
 
-**Dashboard (Dashoard)**
+**Dashboard**
 
 <img src="assets/Dashoard.png" alt="Dashboard" width="100%" />
 
-**Dashboard (Dashboard 2)**
-
 <img src="assets/Dashboard2.png" alt="Dashboard 2" width="100%" />
-
-**Dashboard (Dashboard 3)**
 
 <img src="assets/dashboard3.png" alt="Dashboard 3" width="100%" />
 
-
-
 ---
 
-## 📝 Project Overview
+## Project Overview
 GitAnalyzer is a developer intelligence engine designed to transform raw, fragmented developer profiles into rich, structured engineering intelligence. Instead of simply pulling standard profile summaries, GitAnalyzer compiles deep candidate dossiers by programmatically scanning public repositories, analyzing commit frequencies, evaluating repository size distributions, and calculating language density trends. This structural analysis is supplemented by custom-trained AI pipelines that synthesize a developer's engineering character, collaboration patterns, and architectural paradigms.
 
 ---
 
-## ⚠️ Problem Statement
+## Problem Statement
 Modern technical recruitment and developer evaluation processes suffer from a reliance on self-reported resumes and static profile pages. Hiring managers and technical leads struggle to quickly grasp a candidate's actual coding style, architectural discipline, and consistency. While platforms like GitHub offer raw public data, this information is highly fragmented across multiple repositories, languages, and commit histories. Calculating developer consistency, language dominance, and repository impact manually is time-consuming. GitAnalyzer solves this problem by programmatically aggregating, normalising, caching, and evaluating candidate metadata in real time, serving clean intelligence reports within seconds.
 
 ---
 
-## ⚡ Core Features
+## Core Features
 
 ### Real-Time AST and Metadata Analysis
 The platform processes public repository structures on demand, calculating exact language usage percentages, aggregate star count indices, fork tracking ratios, and codebase complexity trends.
@@ -70,7 +63,7 @@ The engine integrates disparate GitHub data endpoints into a clean, unified REST
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 The platform is constructed with a modern, high-performance tech stack:
 * **Backend Framework:** Spring Boot 4.0.3 utilizing Java 25 features for efficient bytecode processing.
 * **Security & Authentication:** Spring Security configured for stateless OAuth2 flows combined with custom JWT generation and validation layers.
@@ -82,7 +75,7 @@ The platform is constructed with a modern, high-performance tech stack:
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 GitAnalyzer uses a decoupled, three-tier architecture that segregates the client runtime from the data transformation and evaluation pipelines. The React-based frontend communicates through secure proxies to a robust Spring Boot backend engine. Under the hood, the backend uses a dedicated database layer for indexing user information, a Redis caching tier to mitigate external API rate-limiting restrictions, and a Spring AI-managed pipeline for code generation and sentiment-driven developer analysis.
 
 Below is a detailed structural representation of the system runtime flow:
@@ -99,7 +92,7 @@ graph TD
 
 ---
 
-## 🔐 Authentication Flow
+## Authentication Flow
 GitAnalyzer enforces a stateless OAuth2-based login system supporting Google and GitHub federated identity providers. 
 
 The complete authentication sequence operates as follows:
@@ -112,7 +105,7 @@ The complete authentication sequence operates as follows:
 
 ---
 
-## 🔄 Request Lifecycle
+## Request Lifecycle
 Every API call targeting candidate intelligence undergoes a structured lifecycle:
 1. The client sends a request to `/api/v1/analyzer/analyze` containing the GitHub username, appending the authorization JWT token in the `Authorization: Bearer <TOKEN>` header.
 2. The API Gateway forwards the request. The backend security filter chain validates the JWT signature, extracts credentials, and permits execution.
@@ -125,14 +118,14 @@ Every API call targeting candidate intelligence undergoes a structured lifecycle
 
 ---
 
-## 💾 Caching Strategy
+## Caching Strategy
 Due to strict rate limiting imposed by external resource providers like the GitHub API, caching is a critical pillar of GitAnalyzer's performance. The caching tier uses Upstash Redis Cloud managed via Spring Data Redis. 
 
 The cache strategy operates on a **Cache-Aside** design pattern. When a user requests data for a candidate, the system attempts to resolve it via Redis. On a cache hit, the data is returned immediately. On a cache miss, the profile is analyzed, saved to the database, and stored in Redis with an explicit Time-to-Live (TTL) configuration of 24 hours. This balances real-time relevance with performance safety.
 
 ---
 
-## 🗄️ Database Design
+## Database Design
 The database schema is managed via Spring Data JPA and hosted on an Aiven MySQL cluster. It maintains candidate information, user authentication records, and analytical session logs.
 
 <img src="assets/Database.png" alt="Database" width="100%" />
@@ -143,14 +136,14 @@ The database schema is managed via Spring Data JPA and hosted on an Aiven MySQL 
 
 ---
 
-## 🧠 AI Pipeline
+## AI Pipeline
 The qualitative evaluation engine integrates Spring AI with Google's Gemini models. The pipeline is designed around semantic code analysis. 
 
 The application compiles structured code summaries and public commit logs, passing them alongside system instructions to the Gemini endpoint. The model evaluates coding styles (checking for SOLID principles, readability, and testing habits), analyzes language percentages, and generates a structured candidate evaluation dossier. This output is parsed back into Java objects using custom Jackson bindings.
 
 ---
 
-## 🌐 Deployment Architecture
+## Deployment Architecture
 The platform is designed to run in a containerized environment:
 * **Frontend Web App:** Compiled to static assets using Vite and hosted on Vercel's global CDN network. All API calls are mapped back to the backend through rewriting rules in `vercel.json` to prevent CORS issues.
 * **Backend Application:** Packaged as a JAR and deployed in a Render container instance running behind their internal load balancers.
@@ -158,7 +151,7 @@ The platform is designed to run in a containerized environment:
 
 ---
 
-## 🔌 API Examples
+## API Examples
 
 ### Candidate Evaluation Endpoint
 
@@ -204,7 +197,7 @@ Content-Type: application/json
 
 ---
 
-## ⚡ Performance Optimizations
+## Performance Optimizations
 To maintain fast response times, several optimizations are applied:
 1. **JSON Deserialization Filtering:** Classes are decorated with `@JsonIgnoreProperties(ignoreUnknown = true)` to avoid parsing unnecessary metadata from GitHub.
 2. **Connection Trimming:** The Redis connection parser trims whitespaces and newlines automatically, avoiding configuration errors on deployment servers.
@@ -212,7 +205,7 @@ To maintain fast response times, several optimizations are applied:
 
 ---
 
-## 🔒 Security
+## Security
 GitAnalyzer enforces standard security protocols:
 * **JWT Secret Integrity:** Secret keys are injected as externalized environment variables.
 * **Stateless Filter Chain:** The request filters execute before standard security checks, validating the signature of incoming JWT tokens for all `/api/v1/**` resources.
@@ -220,14 +213,14 @@ GitAnalyzer enforces standard security protocols:
 
 ---
 
-## 💥 Challenges Faced
+## Challenges Faced
 * **GitHub API Rate Limits:** Bypassed by introducing Upstash Redis as a transient cache layer.
 * **SameSite Cookie Contexts:** Handled by routing federated OAuth redirects back through Vercel CDN proxy rewrites instead of executing cross-origin redirects directly.
 * **Whitespace/Newline String Configurations:** Resolved by programmatically trimming parsed connection URL environments prior to instantiating connection factory instances.
 
 ---
 
-## 🔮 Future Scope
+## Future Scope
 Planned features include:
 * **Multi-Profile Comparison:** A feature to compare multiple candidates side-by-side.
 * **Automatic Pull Request Reviewing:** Deeper evaluation of specific repository pull requests.
@@ -235,7 +228,7 @@ Planned features include:
 
 ---
 
-## 📬 Contact
+## Contact
 For questions regarding the architecture, please contact:
 * **Project Maintainer:** [accclens@gmail.com](mailto:accclens@gmail.com)
 * **GitHub profile:** [github.com/fuioinic](https://github.com/fuionic)
